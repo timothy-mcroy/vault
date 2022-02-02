@@ -26,8 +26,9 @@ This endpoint configures the LDAP auth method.
 
 - `url` `(string: ldap://127.0.0.1)` – The LDAP server to connect to. Examples:
   `ldap://ldap.myorg.com`, `ldaps://ldap.myorg.com:636`. Multiple URLs can be
-  specified with commas, e.g. `ldap://ldap.myorg.com,ldap://ldap2.myorg.com`;
-  these will be tried in-order.
+  specified with commas, e.g. `ldaps://ldap.myorg.com,ldaps://ldap2.myorg.com`;
+  these will be tried in-order. For production configurations, prefer ldaps://
+  as [ldap:// sends credentials to the LDAP server via cleartext.](https://docs.microsoft.com/en-us/archive/blogs/pki/implementing-ldaps-ldap-over-ssl)
 - `case_sensitive_names` `(bool: false)` – If set, user and group names
   assigned to policies within the backend will be case sensitive. Otherwise,
   names will be normalized to lower case. Case will still be preserved when
